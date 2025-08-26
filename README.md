@@ -48,9 +48,11 @@ In this example: `0.2` is the density (density of walkable vs. un-walkable terra
 This is done using ridged multi-layer Perlin noise. See: `effigy_gen::noise_gen::generate_landscape_noise`
 
 First a raw noise image is generated...
+
 ![Terrain](ref/images/generated_terrain.png)
 
 Then the image is cropped to a binary map using a threshold...
+
 ![Terrain](ref/images/generated_terrain_mask.png)
 
 This layer is saved to the game map where black is walkable terrain and white un-walkable terrain.
@@ -67,7 +69,9 @@ This instructs the generator to create small isolated buildings for players to i
 This is done using "Worley Manhattan" noise, which creates a series of cell-like shapes which are the perfect shape for buildings without being a simple square/rectangle. See: `effigy_gen::noise_gen::generate_buildings_noise`
 
 A raw noise image is generated...then cropped to a binary map...then added as a logical layer.
+
 ![Buildings](ref/images/generated_buildings.png) ![Buildings](ref/images/generated_buildings_mask.png) ![Buildings](ref/images/map_gen_453537_AB.png)
+
 (Buildings are marked in red)
 
 ### 4. Add water
@@ -84,7 +88,9 @@ This instructs the generator to create streams of water for the map.
 This is done using ridged multi-layer Perlin noise. See: `effigy_gen::noise_gen::generate_water_noise`
 
 A raw noise image is generated...then cropped to a binary map...then added as a logical layer.
+
 ![Buildings](ref/images/generated_water.png) ![Buildings](ref/images/generated_water_mask.png) ![Buildings](ref/images/map_gen_453537_ABC.png)
+
 (Water is marked in blue)
 
 ### 5. Add trees
@@ -103,7 +109,9 @@ This is done using ridged multi-layer Perlin noise. See: `effigy_gen::noise_gen:
 **Note**: Instead of using a single clamping function like in previous layers, using a middle clamping function creates a noisier scatter of points, which looks more like how trees exist in the wild.
 
 A raw noise image is generated...then cropped to a binary map...then added as a logical layer.
+
 ![Trees](ref/images/generated_trees.png) ![Trees](ref/images/generated_trees_mask.png) ![Trees](ref/images/map_gen_453537.png)
+
 (Trees are marked in green)
 
 ### 6. Collapse layers
