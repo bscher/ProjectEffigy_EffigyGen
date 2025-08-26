@@ -1,20 +1,20 @@
 # ProjectEffigy - EffigyGen (Demo)
 
-This repository is a partial mirror of the EffigyGen component of ProjectEffigy, for demonstration purposes.
+This is a partial mirror of the EffigyGen component of ProjectEffigy, for demonstration purposes only.
 
-**Note**: Building and running requires a local copy of ProjectEffigy. If you are viewing this repository as a demonstration, continue reading.
+**Note**: Building this demo requires a local copy of ProjectEffigy. If you are viewing this as a demonstration, continue reading.
 
 # Intro
 
-ProjectEffigy is a multiplayer game with pseudo-random procedurally generated game maps. EffigyGen is the math component which makes this possible.
+ProjectEffigy is a multiplayer game with pseudo-random procedurally generated game maps.
 
-EffigyGen is a cross-platform Rust library which reliably generates the pseudo-random game world being compiled on any platform. EffigyGen is compiled to native AMD64/ARM64 (server) and WebAssembly (client).
+EffigyGen is the cross-platform Rust library which generates deterministic pseudo-random complex game worlds. It can be compiled to any platform and reliably generate the game game world given the same seed and parameters. EffigyGen is compiled to native x86_64 (server) and WebAssembly (client).
 
 # How it it used
 
-*EffigyServer* -- Uses `effigy_gen::map_gen::MapGenerator` for procedurally generating and hosting an near-infinitely scaling game world.
+*EffigyServer* -- Uses `effigy_gen::map_gen::MapGenerator` for procedurally generating and hosting an infinitely scaling game world.
 
-*EffigyClient* -- Also uses `effigy_gen::map_gen::MapGenerator` to mirror the procedural generation of the server to avoid unnecessary network communication; merely an initial seed + general map options is required for the server and client to procedurally generate the exact same map.
+*EffigyClient* -- Also uses `effigy_gen::map_gen::MapGenerator` to mirror the procedural generation of the server to avoid unnecessary network communication; merely sharing common seed + parameters is all that is needed for the server and client to procedurally generate the exact same map chunks.
 
 # Visual Example
 
@@ -33,11 +33,11 @@ let grid: MapGrid = MapGenerator::new(seed, &map_chunks_size)
 
 ### 1. Create initial map chunks
 
-A map is generated one `MapChunk` at a time, allowing for any specific `MapChunk` to be generated on-demand in any order. For this example, a 'random' seed is declared and the `MapGenerator` will create a grid of chunks (4x4 in this example, or 16 total chunks).
+A map is generated one `MapChunk` at a time, allowing for any specific `MapChunk` to be generated on-demand in any order. For this example, a randomly-appointed seed and parameters are declared for the `MapGenerator` to generate a grid of chunks (4x4 in this example, or 16 total chunks).
 
 ### 2. Add walkable and un-walkable terrain
 
-Then, using a factory pattern, the `MapGenerator` takes in options for how the game map should be shaped.
+Using a factory pattern, the `MapGenerator` takes in options for how the layers should be shaped.
 ```rust
     .with_terrain(0.2, 0.5)
 ```
@@ -100,7 +100,7 @@ This instructs the generator to create scattered trees for the map.
 
 This is done using ridged multi-layer Perlin noise. See: `effigy_gen::noise_gen::generate_foilage_noise`
 
-Note: Instead of using a single clamping function like in previous layers, using a middle clamping function creates a noisier scatter of points, which looks more like how trees exist in the wild.
+**Note**: Instead of using a single clamping function like in previous layers, using a middle clamping function creates a noisier scatter of points, which looks more like how trees exist in the wild.
 
 A raw noise image is generated...then cropped to a binary map...then added as a logical layer.
 ![Trees](ref/images/generated_trees.png) ![Trees](ref/images/generated_trees_mask.png) ![Trees](ref/images/map_gen_453537.png)
