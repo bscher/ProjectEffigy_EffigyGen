@@ -142,4 +142,4 @@ fn generate_example_tile_grid() {
 
 The generated image can now then be interpreted as a game world map with each color representing a feature on the map. Chunks can be generated on-demand as the player traverses across the grid.
 
-TODO: In-game render
+![InGame](ref/images/map_gen_453537_4x4_ingame.png)
