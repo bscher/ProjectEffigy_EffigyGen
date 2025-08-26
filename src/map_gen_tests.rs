@@ -10,7 +10,7 @@ use super::map_gen::MapGenerator;
 #[test]
 fn generate_example_tile_grid() {
     let seed: u32 = 453537;
-    let map_chunks_size = MapChunkXY { x: 2, y: 2 };
+    let map_chunks_size = MapChunkXY { x: 4, y: 4 };
     let grid: MapGrid = MapGenerator::new(seed, &map_chunks_size)
         .with_terrain(0.2, 0.5)
         .with_buildings(0.1, 0.25)
