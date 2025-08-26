@@ -11,7 +11,7 @@ name = "effigy_gen"
 crate-type = ["rlib"]
 
 [dependencies]
-effigy_shared = { path = "../EffigyShared" }
+effigy_shared = { path = "../ProjectEffigy/EffigyShared" }
 image = { version = "0.24", optional = true }
 noise = "0.8"
 static_assertions = "1"
