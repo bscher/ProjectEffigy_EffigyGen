@@ -1,0 +1,29 @@
+[package]
+name = "effigy_gen"
+version = "0.1.0"
+authors = [
+    "Blake Scherschel <blake.scherschel@gmail.com>"
+]
+edition = "2021"
+
+[lib]
+name = "effigy_gen"
+crate-type = ["rlib"]
+
+[dependencies]
+effigy_shared = { path = "../EffigyShared" }
+image = { version = "0.24", optional = true }
+noise = "0.8"
+static_assertions = "1"
+
+[features]
+# 'default' implies a development setting
+# Dependent crates should use "default-features = false"
+default = ["images", "examples-complex"]
+
+# Enable the ability to generate images from noise functions
+images = ["dep:image", "noise/images"]
+# Generate example images using individual noise functions
+examples-simple = ["images"]
+# Generate complex example images using a combination of noise functions
+examples-complex = ["images"]
