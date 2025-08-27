@@ -12,7 +12,7 @@ EffigyGen is the cross-platform Rust library which generates deterministic pseud
 
 ![InGame](ref/images/map_gen_453537_4x4_ingame.png)
 
-# How it it used
+# Where it is used
 
 *EffigyServer* -- Uses `effigy_gen::map_gen::MapGenerator` for procedurally generating and hosting an infinitely scaling game world.
 
