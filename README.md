@@ -37,13 +37,13 @@ let grid: MapGrid = MapGenerator::new(seed, &map_chunks_size)
 
 A map is generated one `MapChunk` at a time, allowing for any specific `MapChunk` to be generated on-demand in any order. For this example, a randomly-appointed seed and parameters are declared for the `MapGenerator` to generate a grid of chunks (4x4 in this example, or 16 total chunks).
 
-### 2. Add walkable and un-walkable terrain
+### 2. Add obstacle terrain
 
 Using a factory pattern, the `MapGenerator` takes in options for how the layers should be shaped.
 ```rust
     .with_terrain(0.2, 0.5)
 ```
-This instructs the generator to create walkable terrain for players to walk on, mixing in un-walkable terrain.
+This instructs the generator to create obstacle terrain for players to avoid.
 
 In this example: `0.2` is the density (density of walkable vs. un-walkable terrain), and `0.5` is how scattered the mix of the two should be (`0.5` represents a medium amount of clumping).
 
