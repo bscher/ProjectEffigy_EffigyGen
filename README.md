@@ -78,7 +78,7 @@ A raw noise image is generated...then cropped to a binary map...then added as a 
 
 ### 4. Add water
 
-Next, the `MapGenerator` is instructed to add a layer of randomly placed buildings, avoiding overlap with existing terrain.
+Next, the `MapGenerator` is instructed to add a layer for randomly placed bodies of water, avoiding overlap with existing terrain.
 
 ```rust
     .with_water(0.2, 0.5)
