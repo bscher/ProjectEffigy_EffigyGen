@@ -1,6 +1,6 @@
 # ProjectEffigy - EffigyGen (Demo)
 
-Created and provided by Blake Scherschel for demonstration purposes.
+Created by Blake Scherschel. Provided for demonstration purposes.
 
 # Intro
 
