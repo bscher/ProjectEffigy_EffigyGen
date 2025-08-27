@@ -1,12 +1,12 @@
-# ProjectEffigy - EffigyGen (Demo)
+# ProjectEffigy - EffigyGen Demo
 
 Created by Blake Scherschel. Provided for demonstration purposes.
 
 # Intro
 
-ProjectEffigy is a multiplayer game in a sprawling 2D grid of squares with a procedurally generated world.
+ProjectEffigy is a multiplayer game with a procedurally generated world, represented by a 2D grid of squares.
 
-EffigyGen is the cross-platform Rust library which generates deterministic pseudo-random complex game worlds. It can reliably generate game worlds across platforms, given the same seed and parameters. EffigyGen is compiled to native x86_64 (server) and WebAssembly (client).
+EffigyGen is a cross-platform Rust library/crate which generates deterministic pseudo-random complex map grids. Generation is deterministic across platforms, given the same seed and parameters. EffigyGen is compiled to native x86_64 (server) and WebAssembly (client).
 
 **Note**: Building this demo requires a local copy of ProjectEffigy. If you are viewing this as a demonstration, continue reading.
 
